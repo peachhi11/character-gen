@@ -41,25 +41,68 @@ CharacterGen is a Python-based application for creating and editing v2 character
     - info on hover for each fields function
     - token counter with breakdown
 
-## Installation
+## Local Bootstrap
 
 ### Prerequisites
-- Python 3.x
+- Python 3.14 or 3.11
 
-### Setup
+### First-time setup
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/CharacterGen.git
    cd CharacterGen
    ```
-2. Configure the API settings in `config.yaml`. For atleast Ooba and KoboldCCP don't forget the /v1/chat/completions, the default should work for most people:
-   ```yaml
-   API_URL: "http://127.0.0.1:5000/v1/chat/completions"
-   API_KEY: "YOUR_API_KEY"
+2. Run the local bootstrap:
+   ```bash
+   ./bootstrap.sh
    ```
-3. Run the application:
-   - Use start.bat
-     - This creats a virtual env, and gets prerequisites 
+
+`bootstrap.sh` is idempotent. It:
+- creates or reuses `.venv`
+- installs the pinned Python dependencies from `requirements.txt`
+- recreates `.venv` automatically if `pip`, PyQt6, or other required imports are broken
+- seeds any missing local files from `bootstrap_assets/`
+- verifies the pinned PyQt6 runtime can start a `QApplication`
+- verifies `data/config/config.yaml`, `data/config/template.json`, and prompt assets
+- runs a non-GUI smoke test against the core save/load and prompt services
+
+### API configuration
+
+If `data/config/config.yaml` does not exist, bootstrap creates it from `bootstrap_assets/config/config.example.yaml`.
+
+Create a local `.env` file for secrets:
+
+```bash
+cp .env.example .env
+```
+
+For OpenRouter, `API_URL` and `API_MODEL` live in `data/config/config.yaml`, while the API key lives in `.env`:
+
+```yaml
+API_URL: "https://openrouter.ai/api/v1/chat/completions"
+API_MODEL: "@preset/janitor"
+```
+
+```bash
+OPENROUTER_API_KEY=your-real-key
+```
+
+`start.sh`, `main.py`, and the config loader all resolve the same runtime config from the project root. Environment variables override file values where supported:
+- `OPENROUTER_API_KEY` or `CHARACTERGEN_API_KEY`
+- `CHARACTERGEN_API_MODEL`
+- `CHARACTERGEN_API_URL`
+
+For local OpenAI-compatible backends such as Oobabooga or KoboldCPP, set `API_URL` to the correct `/v1/chat/completions` endpoint. `API_MODEL` is only enforced when the configured URL targets OpenRouter.
+
+### Launch
+
+After bootstrap passes, start the desktop app with:
+
+```bash
+./start.sh
+```
+
+`start.sh` reruns the lightweight verification before launching `main.py`, so it doubles as the reliable day-to-day launch path on this machine.
 
 ## Usage
 

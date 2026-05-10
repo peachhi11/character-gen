@@ -1,6 +1,13 @@
 
 *.log
 *.pyc
+__pycache__/
+.DS_Store
 /data/characters
 /data/base_prompts
 /venv
+/.venv
+/.venv311
+/.env
+/.env.*
+!/.env.example

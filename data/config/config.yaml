@@ -1,5 +1,13 @@
 # ------- API configuration ------- #
-## For Atleast Ooba and KoboldCCP the below URL should work. The important part is /v1/chat/completions. If you use a different URL or Port please change that info.
-API_URL: "http://127.0.0.1:5000/v1/chat/completions"
-# If you do not use an API Key, leave blank Ex. API_KEY: ""
-API_KEY: "2112"
+## OpenRouter chat completions endpoint.
+API_URL: "https://openrouter.ai/api/v1/chat/completions"
+## Set this to the OpenRouter model slug you want to use, for example:
+## API_MODEL: "openai/gpt-4.1-mini"
+## Preset references are also supported, for example:
+## API_MODEL: "@preset/janitor"
+API_MODEL: "@preset/janitor"
+## Put secrets in .env instead of this tracked file:
+## OPENROUTER_API_KEY=replace-me
+
+generation:
+  max_tokens: 2048
