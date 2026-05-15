@@ -1,0 +1,3056 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CharacterCardV3WithTropeEngine",
+  "type": "object",
+  "required": [
+    "spec",
+    "spec_version",
+    "id",
+    "name",
+    "description",
+    "first_mes",
+    "extensions"
+  ],
+  "properties": {
+    "spec": {
+      "type": "string",
+      "const": "chara_card_v3"
+    },
+    "spec_version": {
+      "type": "string",
+      "const": "3.0"
+    },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "personality": {
+      "type": "string"
+    },
+    "scenario": {
+      "type": "string"
+    },
+    "first_mes": {
+      "type": "string"
+    },
+    "mes_example": {
+      "type": "string"
+    },
+    "system_prompt": {
+      "type": "string"
+    },
+    "creator": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "group_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "alternate_greetings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "required": [
+        "trope_engine"
+      ],
+      "properties": {
+        "trope_engine": {
+          "type": "object",
+          "required": [
+            "engine_type",
+            "current_phase",
+            "weights",
+            "origin_context",
+            "dialogue_nodes"
+          ],
+          "properties": {
+            "engine_type": {
+              "type": "string",
+              "enum": [
+                "Meet-Cute",
+                "Meet-Ugly",
+                "Meet-Crazy",
+                "Forced-Proximity",
+                "Strangers-to-Lovers",
+                "Second-Chance",
+                "Forbidden-Romance",
+                "Fake-Dating",
+                "Best-Friend-Triangle",
+                "Partner-Best-Friend",
+                "Tug-of-War-Triangle",
+                "Accidental-Pregnancy",
+                "Secret-Lovechild",
+                "One-Night-Stand",
+                "Matchmaker-Crush",
+                "Relationship-Coach",
+                "Arranged-Marriage",
+                "Childhood-Pact",
+                "Jilted-Bride",
+                "Runaway-Fiance",
+                "Fake-Relationship",
+                "Secret-Relationship",
+                "Prank-Date",
+                "Bully-Romance",
+                "Tortured-Hero",
+                "Hate-to-Love",
+                "Hostile-Friction",
+                "Revenge-Romance",
+                "Blackmail-Date",
+                "The-Bet",
+                "Ugly-Duckling",
+                "Mafia-Crime",
+                "Captive-Captor",
+                "Escort-Transaction",
+                "Sex-Club",
+                "Virgin-Auction",
+                "BDSM-Exchange",
+                "Rescue-Romance",
+                "Step-Sibling",
+                "Teacher-Parent",
+                "Academic-Rivals",
+                "Teacher-Student",
+                "Boardroom-Parity",
+                "Boss-Employee",
+                "Age-Gap",
+                "Doctor-Patient",
+                "Clinical-Consult",
+                "Lawyer-Client",
+                "Co-Counsel",
+                "Billionaire-Playboy",
+                "Office-Benefits",
+                "Office-Rivals",
+                "Cooking-Show",
+                "Band-Brothers",
+                "Harem-Friends",
+                "Polyamory-Love",
+                "MMF-Triad",
+                "MFM-Triad",
+                "MFF-Triad",
+                "No-Feelings",
+                "Friends-Benefits",
+                "Friends-Lovers",
+                "Childhood-Reunion",
+                "High-School-Sweethearts",
+                "Jock-Tutor",
+                "New-Old-Flame",
+                "Accidental-Adultery",
+                "First-Sight",
+                "Roommate-Romance",
+                "Shared-Utility-Boundary",
+                "Love-Neighbor",
+                "Beauty-Beast",
+                "Long-Distance-Relationship",
+                "Unrequited-Love",
+                "Nanny-Romance",
+                "Maid-Romance",
+                "Pool-Boy",
+                "Landscaper-Romance",
+                "Grumpy-Sunshine",
+                "Bad-Boy-Good-Girl",
+                "Playboy-Virgin",
+                "Already-Married",
+                "Amnesia",
+                "Antihero",
+                "Asshole-Hero",
+                "Baby-Doorstep",
+                "Back-From-Dead",
+                "Big-Gesture-Apology",
+                "Blackmail",
+                "Break-Their-Heart-to-Save-Them",
+                "Breakup-Misunderstanding",
+                "Caretaker-Recovery",
+                "Cowboy-Ranchers",
+                "Extended-Breakup",
+                "Fake-Engagement",
+                "All-In-Hero",
+                "Relationship-at-Start",
+                "Self-Esteem-Issues",
+                "Damaged-Parents",
+                "Omegaverse-Supernatural",
+                "Pack-Commander",
+                "Sanctuary-Refuge",
+                "Instinct-Override",
+                "Bloodline-Obligation",
+                "Grounding-Anchor",
+                "Underworld-High-Stakes",
+                "Navy-SEALs",
+                "On-the-Run",
+                "One-Night-of-Danger",
+                "Overprotective-Relatives",
+                "Plain-Jane",
+                "Playboy-Rake",
+                "Possessive-Hero",
+                "Puppy-Hero",
+                "Redemption-Romance",
+                "Romeo-Juliet",
+                "Secret-Admirer",
+                "Relationship-Shattering-Secret",
+                "Sex-First-Feelings-Later",
+                "Single-Parent-Guardian",
+                "Trauma-Slow-Seduction",
+                "Socially-Awkward-Hero",
+                "Sociopathic-Hero",
+                "Surprise-Virgin",
+                "Survival-Romance",
+                "Vegas-Wedding-Surprise",
+                "Widow-Widower",
+                "Workplace-Romance",
+                "Infertility-Romance",
+                "Interfering-Family",
+                "Menage-a-Trois",
+                "Mentorship-Romance",
+                "Sports-Football-Rugby",
+                "Sports-Baseball",
+                "Sports-Hockey",
+                "Sports-Basketball",
+                "Sports-Soccer",
+                "Sports-Tennis-Instructor",
+                "Sports-Lacrosse",
+                "Sports-Wrestling",
+                "Hockey-Forbidden-Sibling",
+                "Coachs-Daughter",
+                "Older-Hero-Younger-Heroine",
+                "Older-Heroine-Younger-Hero",
+                "Grumpy-Veteran-Rookie",
+                "Screwball-Comedy",
+                "Partners-In-Crime",
+                "One-Sided-Cute",
+                "Institutional-Rivalry",
+                "Blank-Page",
+                "Routine-Synchronicity",
+                "Opaque-Inversion",
+                "Rebound-Infatuation",
+                "Lost-Found",
+                "Two-Ships-Passing",
+                "Double-Booking",
+                "Digital-Seek",
+                "Wrong-Table",
+                "Enclosed-Transit",
+                "Critical-Intersect",
+                "Love-Letter-Lunacy",
+                "Mistaken-Identity",
+                "Cage-Match-Entry",
+                "Blind-Date-Mixup",
+                "Classic-Everyday-AU",
+                "Holiday-Romance",
+                "Small-Town",
+                "Return-to-Hometown",
+                "Road-Trip-Romance",
+                "Journey-Romance",
+                "Scavenger-Hunt-Bonding",
+                "First-Love",
+                "Heroine-Disguised-as-Man",
+                "Heroine-Owes-Hero",
+                "Heroine-Pursues-Hero",
+                "Heroine-in-Male-Profession",
+                "Sexually-Confident-Heroine",
+                "Coach-Athlete",
+                "Rival-Captains",
+                "Cross-Campus",
+                "Probation-Alliance",
+                "Benchwarmer-Hustle",
+                "Twenty-Five-Benchmark",
+                "Ten-Year-Void",
+                "Adult-Strangers-Shift",
+                "Shared-Roots",
+                "Climax-Reconnect",
+                "Foundling-Track",
+                "Sandbox-Grudge",
+                "Sandbox-Enemy",
+                "Repeating-Intersect",
+                "Ancestral-Lock",
+                "Martyr-Shield-Pact",
+                "Hometown-Anchor",
+                "Classroom-Proximity",
+                "Shared-Lease",
+                "Shared-Wall",
+                "Missing-Years",
+                "Coffee-Shop-Regular",
+                "Vacation-Countdown",
+                "Gym-Inversion",
+                "Single-Parent-Shield",
+                "Renovation-Project",
+                "Dorm-Suite",
+                "Sports-Roommate",
+                "Cosmic-Anchor",
+                "Opaque-Interlude",
+                "Babysitter",
+                "Corporate-Playmaker",
+                "Crown-Advisor",
+                "Century-Void",
+                "Charitable-Proxy",
+                "Algorithmic-Drive",
+                "Lineage-Shield",
+                "Luxury-Confinement",
+                "Retainer-Date",
+                "Starlet-Shield",
+                "Celebrity-Ordinary-Person",
+                "Movie-Star-Commoner",
+                "Romance-On-Set",
+                "Rich-Poor",
+                "Rockstar-Romance",
+                "Cinderella-Circumstance",
+                "Non-Disclosure-Mask",
+                "Hostile-Takeover",
+                "Liquidation-Trap",
+                "Silver-Fox-Executive",
+                "Mentorship-Breach",
+                "Legal-Mentorship",
+                "Collateral-Debt",
+                "Boardroom-Betrayal",
+                "Enemies-Boardroom",
+                "Mafia-Syndicate",
+                "Kidnapping-Romance",
+                "Bodyguard-Romance",
+                "Motorcycle-Club",
+                "Street-Biker",
+                "Payment-Debt",
+                "Primal-Chase",
+                "Total-Power-Exchange",
+                "Brat-Taming",
+                "CNC-Exchange",
+                "Kinbaku-Restraint",
+                "Stripper-Performance",
+                "Stockholm-Syndrome",
+                "Collateral-Bride",
+                "Bodyguard-Captivity",
+                "Inverted-Captivity",
+                "Indentured-Servitude",
+                "Ransom-Bargain",
+                "Bratva-Enforcer",
+                "Corrupt-Detective",
+                "Wiretap-Crisis",
+                "Blood-Truce",
+                "Cartel-Isolation",
+                "Underworld-Medic",
+                "Syndicate-Fixer",
+                "Mob-Informant",
+                "Deep-Cover-Trap",
+                "Cyber-Hacker",
+                "DDLG-Exchange",
+                "Bodyguard-Protection",
+                "Caretaker-Infiltration",
+                "Preserved-Identity",
+                "Amnesia-Haven",
+                "Honeymoon-Trap",
+                "Vigilante-Justice",
+                "Castaway-Survival",
+                "Flight-Crisis",
+                "Witness-Protection",
+                "Suburban-Mask",
+                "Bondage-Restraint",
+                "Spanking-Discipline",
+                "Tactical-Infatuation",
+                "Orphan-Pact",
+                "Instant-Castaway",
+                "Guilt-Ridden-Anchor",
+                "Guardian-Ward",
+                "Taboo-Betrayal",
+                "Penpal-Enemy",
+                "Lingering-Ex",
+                "On-a-Break",
+                "UST-Slow-Burn",
+                "Betrayal-Grovel",
+                "Infidelity-Melodrama",
+                "Ghost-Marriage",
+                "Marital-Sham",
+                "Ancestral-Truce",
+                "Opposites-Attract",
+                "Reverse-Harem",
+                "Sovereign-Selection",
+                "Mail-Order-Bride",
+                "Marriage-of-Convenience",
+                "Platonic-Denial",
+                "Casual-Breach",
+                "Proxy-Collapse",
+                "Nostalgia-Anchor",
+                "Performative-Spark",
+                "Volatile-Relapse",
+                "Legal-Lock-in",
+                "Himbo-Earnest",
+                "Soft-Alpha",
+                "Pure-Devotion",
+                "Unconscious-Bleed",
+                "Instructional-Proximity",
+                "Martyr-Shield",
+                "Side-Car-Jealousy",
+                "Profile-Conflict",
+                "Contractual-Heartbreak",
+                "Flirt-Coach",
+                "Earnest-Hustle",
+                "Radiant-Optimizer",
+                "Soft-Sanctuary",
+                "Chivalric-Code",
+                "Calculated-Sabotage",
+                "Undercover-Predator",
+                "Cynical-Wager",
+                "Altar-Flight",
+                "Dare-Repentance",
+                "Preserved-Grief",
+                "Broken-Wingman",
+                "Transactional-Truce",
+                "Martyr-Shield-Crisis",
+                "Ex-Best-Friend",
+                "Sibling-Partner",
+                "Erased-Barrier",
+                "Cynical-Setup",
+                "Group-Exposure",
+                "Loyalty-Breakdown",
+                "Bar-Tab-Wager",
+                "Engineered-Trap",
+                "Overt-Obsession",
+                "Extorted-Target",
+                "Undercover-Sabotage",
+                "Public-Cover-Breach",
+                "Proxy-Voice",
+                "Prank-Paranoia"
+              ]
+            },
+            "current_phase": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 6
+            },
+            "weights": {
+              "type": "object",
+              "required": [
+                "lie_active",
+                "lie_count",
+                "angst_meter",
+                "distance_locked"
+              ],
+              "properties": {
+                "platonic_trust": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "romantic_awareness": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "rivalry_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "repressed_desire": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "chaotic_chemistry": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "adrenaline_level": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "confinement_stress": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "proximity_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "social_distance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "observational_interest": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "vulnerability_thaw": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "unresolved_hurt": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "lingering_attachment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "defensive_pride": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "past_breakup_baggage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protective_pride_shield": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "residual_heartbreak": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "systemic_restraint": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "stolen_proximity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "fear_of_exposure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "performative_closeness": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "private_confusion": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "boundary_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "shared_platonic_trust": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "internal_jealousy": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "attraction_imbalance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "loyalty_guilt": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "forbidden_proximity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "repressed_fixation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "possessive_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "rivalry_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "boundary_assertion": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "domestic_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "forced_co_dependence": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protective_instinct": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "historical_hurt": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protective_shield": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "historical_hurt_index": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "parental_shield_drive": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "exposure_panic_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "physical_hyper_awareness": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "social_awkwardness": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "denial_buffer": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "performative_guidance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "proxy_resentment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "internal_frictional_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "instructional_proximity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "professional_restraint": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "private_fixation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "contractual_lock": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "clinical_politeness": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "undercurrent_fixation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "nostalgia_anchor": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "pact_relevance_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "fear_of_rejection": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "public_humiliation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "unresolved_heartbreak": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "defensive_anger": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "commitment_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "abandonment_guilt": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "lingering_fixation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "lingering_fixation_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "malicious_intent": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "guilt_conversion": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "genuine_fixation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "overt_antagonism": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "buried_fixation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "power_dominance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "internal_trauma": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "emotional_detachment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "rescue_resistance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "hostile_friction": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "physical_attraction": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "repressed_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "manipulation_drive": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "loyalty_sabotage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "genuine_attachment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "coercive_leverage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "hostile_compliance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "power_inversion": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "cynical_wager": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "guilt_spike": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "confidence_deficit": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "transformation_shock": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "fixated_observation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "underworld_dominance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "lethal_risk_factor": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protective_obsession": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "power_asymmetry": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "trauma_bonding": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "transactional_boundary": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "performative_intimacy": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "private_numbness": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "sensory_exposure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "performative_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "exclusive_fixation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "financial_leverage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "ownership_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protective_safeguard": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "power_exchange_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "consent_restraint": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "aftercare_safety": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protector_drive": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "trauma_thaw": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "vulnerability_spike": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "domestic_lock": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "family_friction": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "professional_boundary": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "parental_protective_drive": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "situational_awkwardness": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "academic_risk_factor": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "hidden_proximity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "evaluation_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "corporate_asymmetry": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "favoritism_paranoia": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "generational_variance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protective_seniority": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "social_disapproval_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "ethical_restraint": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "clinical_objectivity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "legal_stakes_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "confidential_proximity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "conflict_of_interest": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "capital_leverage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "media_scrutiny_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "transactional_casualty": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "cubicle_proximity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "promotion_rivalry_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "performance_racing_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "hostile_friction_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "competence_respect": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "media_performance_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "timer_stress_boundary": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "fraternal_loyalty_shield": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "tactical_proximity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "group_status_quo_friction": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "proxy_competitive_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "jealousy_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "multi_party_equilibrium": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "boundary_negotiation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "psychological_safety": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "alpha_friction_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "shared_possessive_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "synchronized_obsession": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "parallel_attraction": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "truce_buffer_comfort": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "domestic_rebalancing": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "dual_female_friction": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "emotional_equilibrium": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "boundary_panic_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "platonic_baseline_trust": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "contractual_intimacy": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "private_romantic_fixation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "historical_security": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "fear_of_relationship_loss": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "physical_awareness_shift": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "time_gap_divergence": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "stranger_awkwardness": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "early_life_bond": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "hometown_environmental_anchor": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "adult_evaluation_friction": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "social_contrast_gap": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "forced_academic_proximity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "intellectual_attraction": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "reignited_attraction_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "nostalgic_relapse_drive": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "lingering_romantic_fixation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "moral_crisis_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "hidden_marital_baggage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "guilt_conversion_index": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "immediate_infatuation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "accelerated_proximity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "historical_baseline": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "domestic_forced_proximity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "shared_structural_overhead": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "boundary_play_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "geographic_proximity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "shared_property_boundary": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "intersection_frequency": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "identity_disorientation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "misdirected_spark": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "embarrassed_curiosity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "confessional_vulnerability": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "misdelivery_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "written_intimacy": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "false_persona_pressure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "recognition_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "authentic_pull": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "epistolary_intimacy": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "anonymity_conflict": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "hostile_discovery": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "class_disparity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "midnight_expiry_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "transformative_allure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protective_savagery": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "gentleness_thaw": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "appearance_fear": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "separation_strain": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "digital_intimacy": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "reunion_ache": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "silent_devotion": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "hope_suppression": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "jealousy_wound": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "class_imbalance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "resource_insecurity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protective_generosity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "fame_pressure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "normalcy_craving": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "paparazzi_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "scripted_intimacy": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "publicity_spin": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "between_takes_tension": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "touring_chaos": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "crowd_possessiveness": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "backstage_vulnerability": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "enforced_mileage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "confined_companionship": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "destination_dread": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "clue_fixation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "playful_competition": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "shared_discovery": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "caretaker_boundary": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "domestic_attachment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "household_intimacy": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "service_hierarchy": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "observant_intimacy": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "class_restraint": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protective_protocol": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "threat_hypervigilance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "forbidden_touch": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "sunlit_flirtation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "class_tension": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "domestic_temptation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "seasonal_proximity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "laboring_focus": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "curbside_tension": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "gruff_resistance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "radiant_persistence": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "mood_thaw": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "reckless_allure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "moral_friction": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protective_corruption": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "experienced_mask": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "innocence_shock": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "claiming_restraint": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "collision_intensity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "locker_room_pressure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "postgame_tenderness": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "seasonal_grind": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "dugout_superstition": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "slowburn_focus": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "rink_aggression": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "bench_tension": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protective_checking": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "court_chemistry": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "spotlight_pressure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "trust_fall_timing": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "field_coordination": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "international_pull": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "stoppage_tension": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "coaching_precision": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "private_lesson_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "reputational_risk": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "contact_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "campus_visibility": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "territorial_focus": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "grappling_closeness": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "performance_ego": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "submission_trust": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "locker_room_loyalty": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "sibling_boundary_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "alpha_possessiveness": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "domestic_familiarity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "commitment_complacency": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "rediscovery_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "memory_void": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "familiarity_ghosting": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "rediscovery_pull": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "moral_shadow": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protective_fixation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "self_damnation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "abrasive_defense": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "competence_gravity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "buried_tenderness": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "instant_domesticity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "panic_bonding": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "caretaking_pull": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "grief_aftershock": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "impossible_return": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "trust_reconstruction": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "public_vulnerability": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "repair_desperation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "forgiveness_hunger": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "coercive_control": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "exposure_threat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "reluctant_dependency": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protective_withdrawal": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "martyr_complex": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "misguided_distance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "miscommunication_wound": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "assumption_spiral": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "reconciliation_pull": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "caretaking_tenderness": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "physical_fragility": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "healing_dependency": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "team_rule_tension": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "legacy_pressure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "rural_grit": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "land_tether": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protective_stoicism": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "past_attachment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "territorial_irritation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "comparison_wound": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "separation_drag": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "unfinished_attachment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "reentry_resistance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "technical_separation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "jealousy_loophole": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "reconciliation_confusion": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "performative_commitment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "wedding_pressure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "foundational_attachment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "innocence_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "future_fear": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "immediate_devotion": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protective_certainty": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "fear_of_losing_first": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "established_commitment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "external_disruption": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "stability_threat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "self_worth_deficit": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "praise_resistance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "reassurance_hunger": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "family_wound": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "domestic_defensiveness": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "trust_instability": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "freedom_mask": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "exposure_risk": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "sacrificial_bargain": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "power_debt": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "hidden_self_erosion": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "mundane_proximity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "routine_intimacy": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "everyday_attachment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "instinct_pressure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "hierarchy_dominance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "pack_protective_drive": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "sanctuary_drive": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "exposure_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "bloodline_obligation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "council_honor_code": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "private_emotional_capture": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "grounding_reliability": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "emotional_anchoring": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "crisis_mitigation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "bond_imprinting": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "pack_or_magic_risk": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "repressed_longing": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "near_miss_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "restraint_fatigue": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "betrayal_damage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "repair_humility": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "forgiveness_desperation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "moral_violation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "forbidden_attachment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "public_fallout": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "criminal_sovereignty": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "lethal_exposure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "obsessive_protection": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "mission_secrecy": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "tactical_protection": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "deployment_strain": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "shared_odyssey": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "path_dependency": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "arrival_fear": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "pursuit_adrenaline": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "forced_trust": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "safehouse_intimacy": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "crisis_bonding": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "adrenaline_afterglow": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "mortality_pull": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "difference_friction": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "complementary_pull": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "curiosity_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "family_gatekeeping": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "claim_defiance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "approval_pressure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "underestimated_allure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "visibility_shift": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "self_concept_shock": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "serial_charm": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "avoidance_instinct": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "singular_fixation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "claiming_instinct": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "territorial_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protective_intensity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "golden_devotion": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "joyful_pursuit": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "earnest_vulnerability": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "atonement_drive": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "self_loathing": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "worthiness_hunger": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "nostalgia_pressure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "reputation_memory": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "roots_reckoning": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "multi_suitor_pressure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "central_choice_resistance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "group_claim_tension": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "suitor_density_load": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "selection_stress_index": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "horizontal_ranking_score": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "household_feud": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "forbidden_loyalty": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "doomed_devotion": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "hidden_devotion": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "reveal_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "anonymous_intimacy": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "concealed_truth": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "exposure_countdown": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "trust_fragility": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "physical_ease": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "emotional_avoidance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "attachment_creep": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "caretaker_burden": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "domestic_screening": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "family_acceptance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "trauma_caution": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "incremental_trust": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "touch_tolerance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "community_visibility": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "local_history": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "gossip_pressure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "social_misalignment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "earnest_focus": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "communication_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "affective_void": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "selective_obsession": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "control_experiment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "hidden_inexperience": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "exposure_embarrassment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "trust_need": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "survival_dependency": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "resource_stress": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protective_pairing": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "impulsive_commitment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "hangover_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "annulment_tension": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "grief_loyalty": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "memory_comparison": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "reawakening_fear": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "office_proximity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "career_risk": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "gender_barrier_pressure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "competence_overdrive": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "protective_irritation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "financial_debt": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "pride_resistance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "obligation_tension": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "active_pursuit": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "targeted_devotion": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "rejection_fear": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "sexual_assurance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "vulnerability_gap": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "destabilized_target": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "time_limit_pressure": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "seasonal_magic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "departure_dread": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "grief_shame": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "body_betrayal": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "partnership_strain": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "family_intrusion": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "boundary_enforcement": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "loyalty_tension": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "abduction_fear": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "forced_dependency": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "contractual_arrival": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "cultural_dislocation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "earned_safety": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "contractual_union": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "benefit_alignment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "unexpected_devotion": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "triad_balance": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "shared_desire": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "jealousy_management": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "guidance_bond": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "authority_restraint": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "competence_attraction": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "club_loyalty": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "outlaw_protection": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "territorial_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "fear_of_loss": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "emotional_depth": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "angst_meter": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "lie_active": {
+                  "type": "boolean"
+                },
+                "lie_count": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "distance_locked": {
+                  "type": "boolean"
+                },
+                "network_infiltration": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "loyalty_sabotage_heat": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "liquidation_leverage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "wiretap_exposure_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "deep_cover_stress": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "operational_sabotage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "surveillance_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "performative_domestic_mask": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "blood_truce_leverage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "hostile_domestic_friction": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "instructional_proxy_drive": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "textual_hyper_fixation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "identity_breakdown_panic": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                }
+              }
+            },
+            "origin_context": {
+              "type": "object",
+              "required": [
+                "environment_type",
+                "incident_summary",
+                "spark_token",
+                "unbreakable_tether"
+              ],
+              "properties": {
+                "environment_type": {
+                  "type": "string"
+                },
+                "incident_summary": {
+                  "type": "string"
+                },
+                "spark_token": {
+                  "type": "string"
+                },
+                "unbreakable_tether": {
+                  "type": "string"
+                }
+              }
+            },
+            "dialogue_nodes": {
+              "type": "object",
+              "required": [
+                "phase_4_breaking_point",
+                "phase_5_hangover_crisis"
+              ],
+              "properties": {
+                "phase_4_breaking_point": {
+                  "type": "object",
+                  "required": [
+                    "activation_condition",
+                    "dialogue_payload",
+                    "action_prompt"
+                  ],
+                  "properties": {
+                    "activation_condition": {
+                      "type": "string"
+                    },
+                    "dialogue_payload": {
+                      "type": "string"
+                    },
+                    "action_prompt": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "phase_5_hangover_crisis": {
+                  "type": "object",
+                  "required": [
+                    "if_player_lied",
+                    "if_player_honest"
+                  ],
+                  "properties": {
+                    "if_player_lied": {
+                      "type": "string"
+                    },
+                    "if_player_honest": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
