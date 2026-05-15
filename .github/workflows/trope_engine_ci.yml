@@ -1,0 +1,80 @@
+name: Trope Engine App CI Suite
+
+"on":
+  push:
+    branches:
+      - main
+      - develop
+      - master
+  pull_request:
+    branches:
+      - main
+      - develop
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-and-test:
+    runs-on: macos-latest
+    timeout-minutes: 25
+
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      QT_QPA_PLATFORM: offscreen
+
+    steps:
+      - name: Checkout Repository Source Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python Runtime Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Run JSON Schema Integrity Verification Loop
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from jsonschema import Draft202012Validator
+
+          schema_dir = Path("character_app/schemas")
+          checked = 0
+          for schema_path in sorted(schema_dir.glob("*.json")):
+              schema = json.loads(schema_path.read_text(encoding="utf-8"))
+              Draft202012Validator.check_schema(schema)
+              checked += 1
+              print(f"Schema OK: {schema_path}")
+
+          if checked == 0:
+              raise SystemExit("No schema files found in character_app/schemas")
+          print(f"JSON SCHEMA COMPLIANCE CHECK PASSED ({checked} schemas)")
+          PY
+
+      - name: Compile Python Modules
+        run: |
+          python -m compileall character_app scripts tests
+
+      - name: Execute Regression Test Suite
+        run: |
+          python -m unittest discover -s tests -p "test_*.py" -v
+
+      - name: Archive Validated Test Logs and Fixtures Ledger
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: trope-engine-test-reports
+          path: |
+            *.log
+            repo_asset_inventory_ledger.json
+          retention-days: 5
