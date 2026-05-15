@@ -1,0 +1,17 @@
+{
+  "name": "persona_soft_match",
+  "prompt_library": "persona",
+  "prompt_set": "Default",
+  "description": "A soft but adult persona matched to a dangerous, high-control male lead.",
+  "reference_card_path": "reference_character.json",
+  "reference_text": "The pairing should be monogamous, emotionally intense, contemporary, and grounded. Avoid gimmicky intimacy details. The user persona should feel like his best match rather than a random contrast build.",
+  "inputs": {
+    "name": "Modern feminine full name. She should feel believable, soft, and naturally elegant.",
+    "personality": "Soft, feminine, emotionally deep, quietly warm, unintentionally magnetic, natural seductress but unaware of it, playful innocence leaking through elegance, never childish, never loud, easy to underestimate, warmth revealed slowly, softness with backbone.",
+    "scenario": "She should fit naturally into his orbit and challenge him to soften without overpowering him.",
+    "first_mes": "Give her a first reply that is gentle, intelligent, and unintentionally intimate rather than overtly flirtatious.",
+    "description": "Keep the overview compact and roleplay-useful.",
+    "mes_example": "Her voice should feel human, soft, restrained, and occasionally mischievous."
+  },
+  "direct_name": false
+}

@@ -1,0 +1,191 @@
+# Grounded Romance Trope Reference
+
+## Purpose
+Use this reference to help identify the strongest route engine, relationship dynamic, and scene pressure for standard character and persona generation. Choose one primary trope and, at most, one secondary emotional dynamic. Favor clarity and chemistry over trope stacking.
+
+## Non-Verbatim Rule
+Use this file to choose route logic, not to print trope labels or stock setups back out.
+
+If the output starts sounding like trope-list paraphrase instead of an actual scenario, convert it into specific emotional pressure and scene logic.
+
+## Strong Core Tropes
+- accidental pregnancy
+- afraid to commit
+- already married but emotionally estranged
+- antihero romance
+- arranged marriage
+- break up to save them
+- big city versus small town
+- beauty and the beast
+- blind date
+- boss or employee
+- blue-collar romance
+- brother's best friend
+- bridesmaid or groomsman
+- celebrity loves commoner
+- Christmas romance
+- childhood enemies to lovers
+- childhood friends to lovers
+- Cinderella or wrong side of the tracks
+- classes clash
+- coming home for the holidays
+- Cyrano or matchmaker
+- dark secret keeps them apart
+- dark or traumatic past
+- disguise
+- different worlds
+- enemies to lovers
+- everyone can see it
+- fake engagement
+- fake marriage
+- friends with benefits
+- friends to lovers
+- frenemies
+- holiday romance
+- instant family
+- innocent cohabitation
+- it happened in Vegas
+- jilted bride or groom
+- law enforcement
+- long distance relationship
+- love at first sight
+- absence makes the heart grow fonder
+- maid or janitor
+- matchmaker gone wrong
+- medical romance
+- meet cute
+- miscommunication
+- lovers in denial
+- mistaken identity
+- neighbours
+- on the rocks
+- older couple
+- opposites attract
+- outsider from out of town
+- pen pals
+- politics
+- protector
+- reality TV romance
+- redemption
+- rescue romance
+- revenge
+- rich versus poor
+- rivals to lovers
+- road trip romance
+- shared past reawakened
+- secret identity
+- secret romance
+- secret or hidden past
+- silver fox
+- single-parent romance
+- forbidden love
+- grumpy and sunshine
+- summer romance
+- secret baby
+- second chance
+- second time around
+- similarities attract
+- sleeps with everyone but you
+- stranded together
+- sudden parent
+- the one that got away
+- tropical island romance
+- us against the world
+- widow or widower
+- working with the ex
+- reunion
+- fake relationship
+- forced proximity
+- only one bed
+- roommates
+- office romance
+- small town
+- bodyguard
+- billionaire
+- athlete
+- mafia
+- rock star
+- royalty
+- secret admirer
+- best friend's sibling
+- playboy reformed by real love
+- tortured hero or heroine
+- scars and healing
+- wallflower
+- virgin
+- age gap
+- fish out of water
+- one-night stand becomes more
+- fling becomes real
+- unrequited love
+- return to hometown
+- runaway bride or groom
+- marriage of convenience
+
+## Useful Scene Engines
+- confrontation
+- reunion after distance
+- jealousy flare
+- apology
+- temptation under rules
+- awkward closeness
+- caretaking
+- emotional rupture
+- public performance versus private truth
+- forced teamwork
+- shared secret
+- unresolved longing
+- near-confession
+- forced domesticity
+- forced caretaking
+- sleeping arrangement tension
+- exes forced back into orbit
+- workplace hierarchy tension
+- class-friction attraction
+- celebrity privacy pressure
+- city-versus-country friction
+- crisis-bonding after danger
+- accidental stimulation through proximity or friction
+- adrenaline spike turns intimacy sharper
+- being singled out or specially noticed
+- competence under pressure becomes attraction
+- family or social disapproval
+- family logistics and child-pressure
+- hidden softness under hostility
+- holiday nostalgia pressure
+- media or public scrutiny
+- mistaken closeness becomes real
+- neighbourly intimacy
+- obvious chemistry nobody names
+- protective impulse becomes intimacy
+- reunion after long absence
+- secrets exposed under pressure
+- shared history comes rushing back
+- secret relationship pressure
+- social-class embarrassment
+- travel intimacy
+- wedding-event proximity
+
+## Route Logic Guidance
+- Pick the trope that best explains why these two people are magnetized to each other right now.
+- Match the scene engine to the trope instead of using a generic setup.
+- Keep the world grounded unless the prompt explicitly supports something heightened.
+- Let the trope shape tension, not replace character psychology.
+- Use one clean route with one supporting dynamic instead of stacking five ideas.
+- Prefer route logic that gives the pairing a believable future arc, not just a dramatic premise.
+- If two tropes overlap, merge them into the cleaner more familiar label rather than inventing a niche hybrid.
+- Use heightened or unusual tropes only when the source card clearly supports them.
+- Profession or setting labels should support the romance route, not replace it.
+- Seasonal or location tropes should sharpen atmosphere and proximity, not become empty decoration.
+- Attraction cues like competence, singling someone out, accidental friction, or protectiveness should support the route, not replace the core trope.
+- Past trauma or abuse may inform a character's psychology, but should not be used as default erotic spectacle in the standard mode.
+
+## Caution for Standard Generation
+- Do not use family-incest variants, guardian-ward dynamics, coercive kidnapping, or blackmail-as-romance in standard generation.
+- Do not default to polyamory, reverse harem, consanguinity, step-sibling romance, or similar taboo structures unless the user explicitly asks for a specialized mode.
+- If the raw input suggests something unsafe, illegal, or coercive, redirect toward a safer grounded alternative unless the user explicitly requests otherwise in a separate mode.
+- Do not use obsession-as-romance frames like fatal attraction or “if I can't have you, no one will” as default romance logic.
+- Do not use student-teacher, coercive abduction, sibling triangle, unwanted harem, or other clearly exploitative dynamics in standard generation.
+- Keep dark-romance material like captor romance, assault-rescue romance, secret stalker, doctor-patient, therapist-patient, or other severe power-abuse dynamics out of the standard mode.
+- Keep paranormal or heightened-biology structures like fated mates, omegaverse, or magical compulsion out of the standard mode unless the user explicitly asks for a separate specialized mode.
+- Keep underage partners, prison-rape dynamics, abuse-as-seduction, “fuck or die” coercion, and non-consensual or semi-consensual sex frameworks out of the standard mode.
