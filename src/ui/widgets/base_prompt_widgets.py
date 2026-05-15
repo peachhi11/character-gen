@@ -27,7 +27,7 @@ class BasePromptWidget(QWidget):
         header = QHBoxLayout()
         
         # Field name label
-        label = QLabel(f"Base Prompt for {self.field.value.title()}")
+        label = QLabel(f"Base Prompt for {self.field.display_name}")
         header.addWidget(label)
 
         # Add stretch to push order section to the right and create padding
@@ -150,7 +150,7 @@ class BasePromptsContainer(QWidget):
         layout = QVBoxLayout(container)
         
         # Create widgets for each field
-        for field in FieldName:
+        for field in FieldName.ui_order():
             widget = BasePromptWidget(field)
             self.prompt_widgets[field] = widget
             layout.addWidget(widget)

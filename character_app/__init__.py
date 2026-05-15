@@ -1,0 +1,2 @@
+"""Clean CharacterGen application package."""
+

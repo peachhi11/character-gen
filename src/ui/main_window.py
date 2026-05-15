@@ -57,12 +57,11 @@ class MainWindow(QMainWindow):
         self.config = get_config()
         self._init_services()
         
-        # Load settings
         self.settings = QSettings("CharacterGen", "CharacterGenerator")
-        self._load_settings()
-        
         self._init_ui()
         self._create_menus()
+        self._load_settings()
+        self._ensure_window_visible()
     
     def _init_services(self):
         """Initialize all services"""
@@ -172,6 +171,32 @@ class MainWindow(QMainWindow):
         state = self.settings.value("windowState")
         if state:
             self.restoreState(state)
+
+    def _ensure_window_visible(self):
+        """Keep the main window on a visible screen after restoring settings."""
+        if self.windowState() & Qt.WindowState.WindowMinimized:
+            self.setWindowState(self.windowState() & ~Qt.WindowState.WindowMinimized)
+
+        frame = self.frameGeometry()
+        center = frame.center()
+
+        for screen in QApplication.screens():
+            if screen.availableGeometry().contains(center):
+                return
+
+        primary = QApplication.primaryScreen()
+        if primary is None:
+            return
+
+        available = primary.availableGeometry()
+        width = min(max(self.width(), self.minimumWidth()), available.width())
+        height = min(max(self.height(), self.minimumHeight()), available.height())
+
+        self.resize(width, height)
+        self.move(
+            available.x() + max(0, (available.width() - self.width()) // 2),
+            available.y() + max(0, (available.height() - self.height()) // 2),
+        )
     
     def _save_settings(self):
         """Save application settings"""
@@ -196,6 +221,8 @@ def create_main_window() -> MainWindow:
     """Create and configure the main window"""
     window = MainWindow()
     window.show()
+    window.raise_()
+    window.activateWindow()
     return window
 
 def main():
