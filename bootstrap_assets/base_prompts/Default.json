@@ -1,0 +1,40 @@
+{
+  "name": "Default",
+  "description": "Starter prompt set used when no local base prompts exist.",
+  "created_at": "2026-05-15T00:00:00",
+  "modified_at": "2026-05-15T00:00:00",
+  "prompts": {
+    "name": {
+      "text": "Create one character name. {{if_input}}Use this seed: {{input}}{{/if_input}}",
+      "required_fields": [],
+      "conditional_tags": []
+    },
+    "description": {
+      "text": "Create a concise character description for {{name}}. {{if_input}}Use this direction: {{input}}{{/if_input}}",
+      "required_fields": ["name"],
+      "conditional_tags": []
+    },
+    "scenario": {
+      "text": "Create a scenario for {{name}} using this description: {{description}}. {{if_input}}Include this setup: {{input}}{{/if_input}}",
+      "required_fields": ["name", "description"],
+      "conditional_tags": []
+    },
+    "first_mes": {
+      "text": "Write the first message for {{name}} in this scenario: {{scenario}}. Use {{char}} and {{user}} placeholders.",
+      "required_fields": ["name", "scenario"],
+      "conditional_tags": []
+    },
+    "mes_example": {
+      "text": "Write two short example exchanges for {{name}}. Use {{char}} and {{user}} placeholders.",
+      "required_fields": ["name", "description"],
+      "conditional_tags": []
+    }
+  },
+  "orders": {
+    "name": 1,
+    "description": 2,
+    "scenario": 3,
+    "first_mes": 4,
+    "mes_example": 5
+  }
+}

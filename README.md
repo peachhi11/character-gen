@@ -41,7 +41,7 @@ CharacterGen is a Python-based application for creating and editing v2 character
     - info on hover for each fields function
     - token counter with breakdown
 
-## Local Bootstrap
+## Canonical Local Paths
 
 ### Prerequisites
 - Python 3.14 or 3.11
@@ -52,23 +52,19 @@ CharacterGen is a Python-based application for creating and editing v2 character
    git clone https://github.com/yourusername/CharacterGen.git
    cd CharacterGen
    ```
-2. Run the local bootstrap:
+2. Run the canonical test runner once:
    ```bash
-   ./bootstrap.sh
+   ./test.sh
    ```
 
-`bootstrap.sh` is idempotent. It:
-- creates or reuses `.venv`
+`./test.sh` is the only supported full test path for this checkout. It:
+- creates or reuses the CharacterGen virtual environment at `~/.charactergen-venv`
 - installs the pinned Python dependencies from `requirements.txt`
-- recreates `.venv` automatically if `pip`, PyQt6, or other required imports are broken
-- seeds any missing local files from `bootstrap_assets/`
-- verifies the pinned PyQt6 runtime can start a `QApplication`
-- verifies `data/config/config.yaml`, `data/config/template.json`, and prompt assets
-- runs a non-GUI smoke test against the core save/load and prompt services
+- recreates the venv automatically if Python, PyQt6, or other required imports are broken
+- runs `python -m unittest discover -s tests -p 'test_*.py'` with the venv Python
+- exports a runner marker so tests can fail loudly when someone bypasses the venv
 
 ### API configuration
-
-If `data/config/config.yaml` does not exist, bootstrap creates it from `bootstrap_assets/config/config.example.yaml`.
 
 Create a local `.env` file for secrets:
 
@@ -80,7 +76,8 @@ For OpenRouter, `API_URL` and `API_MODEL` live in `data/config/config.yaml`, whi
 
 ```yaml
 API_URL: "https://openrouter.ai/api/v1/chat/completions"
-API_MODEL: "@preset/janitor"
+API_MODEL: "API_MODEL"
+
 ```
 
 ```bash
@@ -96,13 +93,23 @@ For local OpenAI-compatible backends such as Oobabooga or KoboldCPP, set `API_UR
 
 ### Launch
 
-After bootstrap passes, start the desktop app with:
+Start the desktop app with the one supported launch path:
 
 ```bash
 ./start.sh
 ```
 
-`start.sh` reruns the lightweight verification before launching `main.py`, so it doubles as the reliable day-to-day launch path on this machine.
+`./start.sh` uses the same CharacterGen virtual environment as `./test.sh`, loads `.env` if present, and then launches `main.py`. Do not use bare `python3 main.py` for local verification.
+
+### Full Test Suite
+
+Run the full local suite with:
+
+```bash
+./test.sh
+```
+
+Do not run the suite with bare `python3 -m unittest`. The canonical runner is intentionally part of the contract so tests cannot skip or pass under the wrong interpreter.
 
 ## Usage
 

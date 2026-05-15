@@ -1,0 +1,5 @@
+Pillow==12.2.0
+PyQt6==6.8.1
+PyQt6-Qt6==6.8.2
+PyYAML==6.0.3
+requests==2.33.1
