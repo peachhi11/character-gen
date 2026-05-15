@@ -61,10 +61,11 @@ This project began from the skeleton of CygnusXGithub's original CharacterGen pr
   - Token counting, tag cheat sheets, richer hover help, and broader AICharED-style card editor conveniences are still planned
 
 ## Generation Tab
-![GenTab](/images/GenTab.png)
+[<img width="1512" height="982" alt="Screenshot 2026-05-15 at 14 59 26" src="https://github.com/user-attachments/assets/2fbd6fba-6073-4c4b-8c58-518e2caa7769" />]
+[
   
 ## Base Prompt Tab
-![BasePrompts](/images/basePrompt.png)
+[<img width="1512" height="982" alt="Screenshot 2026-05-15 at 14 59 29" src="https://github.com/user-attachments/assets/b96012ab-46b5-4f69-8b40-fc006efd8504" />]
 ## Roadmap
 The immediate roadmap is to turn the existing separate workflows into one cohesive local app: character card creation, persona matching, prompt/reference management, local character chat, group chat, and lorebook/worldbuilding support.
 
