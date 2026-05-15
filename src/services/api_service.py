@@ -4,7 +4,7 @@ import time
 from dataclasses import dataclass
 from datetime import datetime
 
-from ..core.config import ApiConfig
+from ..core.config import ApiConfig, _is_openrouter_url
 from ..core.exceptions import ApiError, ApiTimeoutError, ApiResponseError
 
 @dataclass
@@ -24,7 +24,7 @@ class ApiService:
     
     def _prepare_payload(self, prompt: str, **kwargs) -> Dict[str, Any]:
         """Prepare the API request payload"""
-        return {
+        payload = {
             "messages": [
                 {
                     "role": "user",
@@ -38,6 +38,17 @@ class ApiService:
             "presence_penalty": kwargs.get('presence_penalty', 0.0),
             "frequency_penalty": kwargs.get('frequency_penalty', 0.0),
         }
+
+        model = kwargs.get('model') or self.config.model
+        if _is_openrouter_url(self.config.url) and not model:
+            raise ApiError(
+                "OpenRouter requires API_MODEL in data/config/config.yaml "
+                "or CHARACTERGEN_API_MODEL in the environment"
+            )
+        if model:
+            payload["model"] = model
+
+        return payload
     
     def _prepare_headers(self) -> Dict[str, str]:
         """Prepare API request headers"""

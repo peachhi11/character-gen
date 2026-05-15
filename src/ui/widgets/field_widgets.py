@@ -30,7 +30,7 @@ class FieldInputWidget(QWidget):
         header = QHBoxLayout()
         
         # Field label
-        label = QLabel(self.field.value.replace('_', ' ').title())
+        label = QLabel(self.field.display_name)
         header.addWidget(label)
         
         # Generation mode checkbox for name field
@@ -55,7 +55,7 @@ class FieldInputWidget(QWidget):
         
         # Input text area
         self.input = QTextEdit()
-        self.input.setPlaceholderText(f"Enter {self.field.value}...")
+        self.input.setPlaceholderText(self.field.placeholder_text)
         self.input.setAcceptRichText(False)
         self.input.document().documentLayout().documentSizeChanged.connect(
             lambda: self._adjust_height(self.input)
@@ -367,7 +367,7 @@ class ExpandedFieldView(QWidget):
         super().__init__(parent)
         self.field = field
         self._init_ui(input_text, output_text)
-        self.setWindowTitle(f"Editing: {field.value}")
+        self.setWindowTitle(f"Editing: {field.display_name}")
         self.resize(800, 600)
         self.setWindowFlags(Qt.WindowType.Window)
 
@@ -376,7 +376,7 @@ class ExpandedFieldView(QWidget):
         
         # Header (now without close button)
         header = QHBoxLayout()
-        header.addWidget(QLabel(f"Editing: {self.field.value}"))
+        header.addWidget(QLabel(f"Editing: {self.field.display_name}"))
         
         # Add regeneration buttons
         regen_btn = QPushButton("🔄 Regenerate")

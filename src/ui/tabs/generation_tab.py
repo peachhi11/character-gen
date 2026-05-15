@@ -84,7 +84,7 @@ class GenerationTab(QWidget):
         input_container_layout.setSpacing(10)
         
         # Add input widgets to container
-        for field in FieldName:
+        for field in FieldName.ui_order():
             if field == FieldName.MES_EXAMPLE:
                 widget = MessageExampleWidget()
             elif field == FieldName.FIRST_MES:
@@ -128,14 +128,14 @@ class GenerationTab(QWidget):
         output_container_layout.setSpacing(10)
         
 
-        for field in FieldName:
+        for field in FieldName.ui_order():
             # Create a container for each field
             field_container = QWidget()
             field_layout = QVBoxLayout(field_container)
             field_layout.setContentsMargins(0, 0, 0, 0)
             
             # Add label
-            label = QLabel(f"{field.value.title()} Output:")
+            label = QLabel(f"{field.display_name} Output:")
             field_layout.addWidget(label)
             
             # Add text edit
@@ -634,7 +634,7 @@ class GenerationTab(QWidget):
         """Create generation callbacks"""
         return GenerationCallbacks(
             on_start=lambda field: self.status_bar.set_status(
-                f"Generating {field.value}..."
+                f"Generating {field.display_name.lower()}..."
             ),
             on_progress=lambda field, status: self.output_texts[field].setPlainText(
                 status
@@ -654,17 +654,17 @@ class GenerationTab(QWidget):
             self.current_character.fields[field] = result.content
         
         self.status_bar.set_status(
-            f"Generated {field.value} in {result.attempts} attempts"
+            f"Generated {field.display_name.lower()} in {result.attempts} attempts"
         )
     
     def _handle_generation_error(self, field: FieldName, error: Exception):
         """Handle generation error"""
         self.output_texts[field].setPlainText(f"Error: {str(error)}")
-        self.status_bar.set_status(f"Error generating {field.value}")
+        self.status_bar.set_status(f"Error generating {field.display_name.lower()}")
         QMessageBox.warning(
             self,
             "Generation Error",
-            f"Error generating {field.value}: {str(error)}"
+            f"Error generating {field.display_name.lower()}: {str(error)}"
         )
     
     def dragEnterEvent(self, event):
